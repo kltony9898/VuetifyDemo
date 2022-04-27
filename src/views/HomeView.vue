@@ -32,12 +32,25 @@ export default {
       chips: [],
     };
   },
+  created() {
+    this.GetCityList();
+  },
   methods: {
     CreateChip(val) {
       this.chips.push(val);
     },
     DeleteChip(index) {
       this.chips.splice(index, 1);
+    },
+    // 獲得城市人名資料存入chips
+    async GetCityList() {
+      const res = await fetch(
+        "https://mocki.io/v1/d4867d8b-b5d5-4a48-a4ab-79131b5809b8",
+        { method: "GET" }
+      ).then((response) => response.json());
+      this.chips = res.map((object) => {
+        return object.name + " in " + object.city;
+      });
     },
   },
 };

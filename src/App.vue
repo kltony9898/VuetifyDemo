@@ -14,21 +14,9 @@
 </template>
 
 <script>
+import HeaderBar from "./components/HeaderBar.vue";
 export default {
   name: "App",
-
-  data() {
-    return {
-      switch1: this.$vuetify.theme.dark,
-    };
-  },
-  mounted() {
-    console.log(this.$vuetify.theme);
-  },
-  methods: {
-    switchMode() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
-    },
-  },
+  components: { HeaderBar },
 };
 </script>
