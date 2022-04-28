@@ -21,7 +21,7 @@
         item-text="text"
         solo
       )
-    v-btn.submit-btn(
+    v-btn.btn-submit(
       elevation="4"
       @click="InputSubmit"
       color="secondary"
@@ -105,7 +105,7 @@ export default {
 .input-group {
   margin: 30px 0px 0px 0px;
 }
-.submit-btn {
+.btn-submit {
   float: right;
 }
 </style>

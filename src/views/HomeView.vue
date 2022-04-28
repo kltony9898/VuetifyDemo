@@ -17,6 +17,14 @@
         close-icon="mdi-delete"
         @click:close="DeleteChip(index)"
       ) {{item}}
+    v-btn.btn-about-me(
+      @click="AboutMe"
+      color="warning"
+      fab
+      dark
+      large
+    )
+        v-icon {{"mdi-account-circle"}}
         
 </template>
 
@@ -42,6 +50,10 @@ export default {
     DeleteChip(index) {
       this.chips.splice(index, 1);
     },
+    // 移動到關於我的葉面
+    AboutMe() {
+      this.$router.push({ name: "about" });
+    },
     // 獲得城市人名資料存入chips
     async GetCityList() {
       const res = await fetch(
@@ -60,5 +72,10 @@ export default {
   padding: 50px;
   margin: 0 auto;
   width: 500px;
+}
+.btn-about-me {
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
 }
 </style>
